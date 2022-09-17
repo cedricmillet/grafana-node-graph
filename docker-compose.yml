@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+
+  # Grafana
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+  
+  # App
+  grafana_datasource_api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PORT=5000
